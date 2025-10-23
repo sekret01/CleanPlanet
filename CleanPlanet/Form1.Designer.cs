@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.partner_table = new System.Windows.Forms.FlowLayoutPanel();
             this.pattern_panel = new System.Windows.Forms.Panel();
             this.type_pattern = new System.Windows.Forms.Label();
@@ -39,8 +40,11 @@
             this.stick_pattern = new System.Windows.Forms.Label();
             this.info_btn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.partner_table.SuspendLayout();
             this.pattern_panel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // partner_table
@@ -49,7 +53,7 @@
             this.partner_table.BackColor = System.Drawing.Color.LightCyan;
             this.partner_table.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.partner_table.Controls.Add(this.pattern_panel);
-            this.partner_table.Location = new System.Drawing.Point(38, 48);
+            this.partner_table.Location = new System.Drawing.Point(232, 86);
             this.partner_table.Name = "partner_table";
             this.partner_table.Padding = new System.Windows.Forms.Padding(5);
             this.partner_table.Size = new System.Drawing.Size(661, 548);
@@ -147,7 +151,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(609, 627);
+            this.button1.Location = new System.Drawing.Point(803, 665);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 39);
             this.button1.TabIndex = 1;
@@ -155,20 +159,45 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(33, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 155);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Franklin Gothic Medium", 24F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(225, 23);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(413, 37);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "система ЧИСТАЯ ПЛАНЕТА";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(779, 686);
+            this.ClientSize = new System.Drawing.Size(979, 725);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.partner_table);
             this.Font = new System.Drawing.Font("Franklin Gothic Medium", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Clean Planet";
             this.partner_table.ResumeLayout(false);
             this.pattern_panel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -185,6 +214,8 @@
         private System.Windows.Forms.Label type_pattern;
         private System.Windows.Forms.Button info_btn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
