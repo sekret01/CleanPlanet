@@ -30,6 +30,7 @@ namespace CleanPlanet
             {
                 button3.Visible = false;
                 button3.Enabled = false;
+                p_type.SelectedItem = 0;
             }
                 
         }
