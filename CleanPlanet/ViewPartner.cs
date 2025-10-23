@@ -21,7 +21,17 @@ namespace CleanPlanet
             is_new = is_create_new;
 
             if (!is_create_new)
+            {
                 FillFields();
+                button3.Visible = true;
+                button3.Enabled = true;
+            }
+            else
+            {
+                button3.Visible = false;
+                button3.Enabled = false;
+            }
+                
         }
 
 
@@ -37,9 +47,62 @@ namespace CleanPlanet
             p_rating.Value = partner.rating;
         }
 
+        private void LoadPartnerData()
+        {
+            partner.old_name = partner.name;
+            partner.name = p_name.Text;
+            partner.type = p_type.Items[p_type.SelectedIndex].ToString();
+            partner.director = p_director.Text;
+            partner.email = p_email.Text;
+            partner.phone = p_phone.Text;
+            partner.address = p_address.Text;
+            partner.inn = p_inn.Text;
+            partner.rating = (int)p_rating.Value;
+        }
+
+        private bool ValidateData()
+        {
+            if (
+            p_name.Text == "" ||
+            p_director.Text == "" ||
+            p_email.Text == "" ||
+            p_phone.Text == "" ||
+            p_address.Text == "" ||
+            p_inn.Text == ""
+                )
+            {
+                MessageBox.Show("input error", "есть пустые поля ввода");
+                return false;
+            }
+            try { long.Parse(p_inn.Text); }
+            catch
+            {
+                MessageBox.Show("input error", "ИНН должен быть числом");
+                return false;
+            }
+            return true;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             // save
+            if (!ValidateData()) return;
+            LoadPartnerData();
+            if (is_new)
+            {
+                if (!DBGetter.AddPartner(partner))
+                {
+                    MessageBox.Show("database error", "не удалось сделать запись в БД");
+                }
+            }
+            else
+            {
+                if (!DBGetter.EditPartner(partner))
+                {
+                    MessageBox.Show("database error", "не удалось сделать запись в БД");
+                }
+            }
+            this.Close();
             
         }
 
@@ -47,6 +110,16 @@ namespace CleanPlanet
         {
             // cancel
 
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            LoadPartnerData();
+            if (!DBGetter.DeletePartner(partner.name))
+            {
+                MessageBox.Show("database error", "не удалось удалить запись в БД");
+            }
             this.Close();
         }
     }

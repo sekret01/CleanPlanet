@@ -12,6 +12,7 @@ namespace CleanPlanet
     {
         public string type;
         public string name;
+        public string old_name;
         public string director;
         public string email;
         public string phone;
